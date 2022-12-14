@@ -49,20 +49,22 @@ function Todo() {
 
   return <>
 
-    <form onSubmit={handleSubmit} className='m-5'>
-        <input type="text" value={value} onChange={(evt) => setValue(evt.target.value)} placeholder='Enter task' />
-        <button type='submit'>Add</button>
+    <div className="container">
+    <form className="w-50 mx-auto my-5 input-group mb-3" onSubmit={handleSubmit}>
+        <input className='form-control' type="text" value={value} onChange={(evt) => setValue(evt.target.value)} placeholder='Enter task' />
+        <button className="btn btn-outline-secondary" type='submit'>Add</button>
     </form>
-    <ul className='list-unstyled m-5'>
+    <ul className='w-50 mx-auto list-unstyled m-5'>
         {todos.map(element => 
-        <li className='d-flex align-items-center mb-3' key={element.id}>
-            <p className='m-0 me-2'>{element.text}</p>
+        <li className='d-flex align-items-center mb-3 text-bg-secondary p-3 rounded-3' key={element.id}>
+            <p className='m-0 me-auto'>{element.text}</p>
             <input className='me-3' type="checkbox" />
-            <button  onClick={() => editList(element.id)}  className='me-3' type='button'>Edit</button>
-            <button  onClick={() => deleteList(element.id)} type='button'>Delete</button>
+            <button  onClick={() => editList(element.id)}  className='btn btn-warning me-3' type='button'>Edit</button>
+            <button className='btn btn-success'  onClick={() => deleteList(element.id)} type='button'>Delete</button>
         </li>
         )}
     </ul>
+    </div>
   </>
 }
 
